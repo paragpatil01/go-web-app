@@ -63,8 +63,8 @@ push:
         file: ./Dockerfile
         push: true
         tags: ${{ secrets.DOCKERHUB_USERNAME }}/go-web-app:${{github.run_id}}
-
-  update-newtag-in-helm-chart:
+    
+    update-newtag-in-helm-chart:
     runs-on: ubuntu-latest
 
     needs: push
@@ -85,5 +85,6 @@ push:
         git config --global user.name "paragpatil01"
         git add helm/go-web-app-chart/values.yaml
         git commit -m "Update tag in Helm chart"
-        git push          
+        git push   
+         
       
